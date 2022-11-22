@@ -1,12 +1,18 @@
+import 'dart:ui';
+
 import 'package:dynamic_cached_fonts/dynamic_cached_fonts.dart';
 import 'package:dynamic_cached_fonts/src/utils.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_cache_manager/src/cache_store.dart';
 
 import 'dynamic_cached_fonts_test.mocks.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DartPluginRegistrant.ensureInitialized();
+
   const String cacheKey = 'DynamicCachedFontsTest';
   const String firebaseMockUrl = 'gs://mockurl.appspot.com/a.ttf';
   const String mockUrl = 'https://example.com/font.ttf';
